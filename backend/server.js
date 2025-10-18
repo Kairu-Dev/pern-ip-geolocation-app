@@ -2,6 +2,10 @@ const express = require('express');
 const cors = require('cors');
 const dotenv = require('dotenv');
 
+//Import Routes
+const authRoutes = require('./routes/authRoutes');
+const historyRoutes = require('./routes/historyRoutes');
+
 // Load environment variables
 dotenv.config();
 
@@ -15,6 +19,14 @@ app.use(express.json());
 // Routes
 app.get('/', (req, res) => {
   res.json({ message: 'Backend is running! 🚀' });
+});
+
+app.use('/api', authRoutes);
+app.use('/api/history', historyRoutes);
+
+// Error handling for undefined routes
+app.use((req, res) => {
+  res.status(404).json({ error: 'Route not found' });
 });
 
 // Start server
