@@ -26,7 +26,7 @@ const SearchBar = ({ onSearch, onClear, loading }) => {
         type="text"
         value={searchIp}
         onChange={(e) => setSearchIp(e.target.value)}
-        placeholder="Enter IP address (e.g., 8.8.8.8)"
+        placeholder="Enter IP address (e.g., 8.8.8.8 or 103.25.220.18)"
         className="flex-1 px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-blue-300/50 focus:outline-none focus:ring-2 focus:ring-blue-500"
       />
       
