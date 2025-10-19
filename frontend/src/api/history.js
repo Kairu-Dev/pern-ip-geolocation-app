@@ -1,7 +1,6 @@
 import axios from 'axios';
+import { API_BASE_URL } from '../config/api';
 
-// Base API URL for backend server
-const API_URL = 'http://localhost:8000/api';
 
 // Helper function to create authorization header with JWT token
 // @param {string} token - JWT authentication token
@@ -16,7 +15,7 @@ export const historyAPI = {
   // Get all search history records for the authenticated user
   // @param {string} token & @returns {Promise} array of history objects
   getAll: async (token) => {
-    const { data } = await axios.get(`${API_URL}/history`, getAuthHeader(token));
+    const { data } = await axios.get(`${API_BASE_URL}/history`, getAuthHeader(token));
     return data.histories; // Extract histories array from response
   },
 
@@ -25,7 +24,7 @@ export const historyAPI = {
   // @returns {Promise} the created history record
   create: async (token, ipAddress, location) => {
     const { data } = await axios.post(
-      `${API_URL}/history`,
+      `${API_BASE_URL}/history`,
       { ipAddress, location }, // Request body with search data
       getAuthHeader(token)
     );
@@ -37,7 +36,7 @@ export const historyAPI = {
   // @returns {Promise} deletion confirmation
   deleteMultiple: async (token, ids) => {
     const { data } = await axios.delete(
-      `${API_URL}/history`,
+      `${API_BASE_URL}/history`,
       { 
         ...getAuthHeader(token), // Spread auth headers
         data: { ids } // Include IDs in request body for DELETE

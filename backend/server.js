@@ -30,14 +30,21 @@ app.use((req, res) => {
 });
 
 // Start server
-app.listen(PORT, () => {
-  console.log(`✅ Server running on http://localhost:${PORT}`);
-}).on('error', (err) => {
-  if (err.code === 'EADDRINUSE') {
-    console.error(`❌ Port ${PORT} is already in use!`);
-    console.log(`💡 Try: different port or kill process on port ${PORT}`);
-  } else {
-    console.error('❌ Server error:', err.message);
-  }
-  process.exit(1);
-});
+if (process.env.NODE_ENV !== 'production') {
+  const server = app.listen(PORT, () => {
+    console.log(`✅ Server running on http://localhost:${PORT}`);
+    console.log(`📍 Environment: development`);
+  });
+
+  // Safe Port Shutdown
+  process.on('SIGINT', () => {
+    console.log('\n👋 Shutting down...');
+    server.close(() => {
+      console.log('✅ Server closed');
+      process.exit(0);
+    });
+  });
+}
+
+// Export for Vercel
+module.exports = app;
