@@ -1,4 +1,5 @@
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
+import { useEffect } from 'react';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 
@@ -9,6 +10,18 @@ L.Icon.Default.mergeOptions({
   iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-icon.png',
   shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-shadow.png',
 });
+
+//Update 2.1 - When user clicks on a history item, map recenters to that location
+// Component to handle map view updates
+const MapUpdater = ({ coordinates }) => {
+  const map = useMap();
+  
+  useEffect(() => {
+    map.setView(coordinates, 13);
+  }, [coordinates, map]);
+  
+  return null;
+};
 
 const MapView = ({ ipData }) => {
   const coordinates = [
@@ -33,6 +46,7 @@ const MapView = ({ ipData }) => {
             {ipData.city}, {ipData.country}
           </Popup>
         </Marker>
+        <MapUpdater coordinates={coordinates} />
       </MapContainer>
     </div>
   );

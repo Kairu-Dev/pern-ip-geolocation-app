@@ -2,6 +2,7 @@ import { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
 import { authAPI } from '../api/auth';
+import eyeLogo from '../assets/bill-cipher-eye.png'; 
 
 // Login page component - handles user authentication
 const Login = () => {
@@ -39,12 +40,15 @@ const Login = () => {
         <div className="bg-white/10 backdrop-blur-lg rounded-2xl shadow-2xl border border-white/20 p-8">
           {/* Header section with logo and title */}
           <div className="text-center mb-8">
-            <div className="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
-              <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
-              </svg>
-            </div>
-            <h1 className="text-3xl font-bold text-white mb-2">IP Tracker</h1>
+            {/* Image Logo*/}
+           <div className="w-20 h-20 mx-auto mb-4 rounded-full flex items-center justify-center overflow-hidden">
+            <img 
+              src={eyeLogo} 
+              alt="Eye Logo" 
+              className="w-full h-full object-cover"
+            />
+          </div>
+            <h1 className="text-3xl font-bold text-white mb-2">I Can See You</h1>
             <p className="text-blue-200">Sign in to continue</p>
           </div>
 

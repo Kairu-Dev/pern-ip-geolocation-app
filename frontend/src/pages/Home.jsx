@@ -7,6 +7,7 @@ import SearchBar from '../components/SearchBar';
 import IpInfoCard from '../components/IpInfoCard';
 import MapView from '../components/MapView';
 import HistoryList from '../components/HistoryList';
+import eyeLogo from '../assets/bill-cipher-eye.png';
 
 const Home = () => {
   const { user, logout, token } = useContext(AuthContext);
@@ -127,12 +128,14 @@ const Home = () => {
       <header className="bg-black/20 backdrop-blur-lg border-b border-white/10 sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center">
-              <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
-              </svg>
-            </div>
-            <h1 className="text-xl font-bold text-white">IP Tracker</h1>
+          <div className="w-10 h-10 rounded-full flex items-center justify-center overflow-hidden">
+          <img 
+            src={eyeLogo} 
+            alt="Eye Logo" 
+            className="w-full h-full object-cover"  // Changed to full size
+          />
+          </div>
+            <h1 className="text-xl font-bold text-white">I Can See You</h1>
           </div>
           <div className="flex items-center gap-4">
             <span className="text-blue-200 text-sm hidden sm:block">{user?.email}</span>
