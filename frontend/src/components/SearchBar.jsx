@@ -34,7 +34,7 @@ const SearchBar = ({ onSearch, onClear, loading }) => {
       <button
         type="submit"
         disabled={loading}
-        className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold transition disabled:opacity-50"
+        className="search-btn"
       >
         {loading ? 'Searching...' : 'Search'}
       </button>
@@ -43,7 +43,7 @@ const SearchBar = ({ onSearch, onClear, loading }) => {
       <button
         type="button"
         onClick={handleClear}
-        className="bg-slate-600 hover:bg-slate-700 text-white px-6 py-3 rounded-lg font-semibold transition"
+        className="clear-btn"
       >
         Clear
       </button>

@@ -132,7 +132,7 @@ const Home = () => {
           <img 
             src={eyeLogo} 
             alt="Eye Logo" 
-            className="w-full h-full object-cover"  // Changed to full size
+            className="w-full h-full object-cover"
           />
           </div>
             <h1 className="text-xl font-bold text-white">I Can See You</h1>
@@ -141,7 +141,7 @@ const Home = () => {
             <span className="text-blue-200 text-sm hidden sm:block">{user?.email}</span>
             <button
               onClick={logout}
-              className="bg-red-500/20 hover:bg-red-500/30 text-red-200 px-4 py-2 rounded-lg transition border border-red-500/30"
+              className="logout-btn"
             >
               Logout
             </button>
@@ -196,7 +196,7 @@ const Home = () => {
                 <button
                   onClick={handleDeleteSelected}
                   disabled={deleteLoading}
-                  className="w-full bg-red-500/20 hover:bg-red-500/30 text-red-200 px-4 py-2 rounded-lg transition border border-red-500/30 mb-4 disabled:opacity-50"
+                  className="delete-btn"
                 >
                   {deleteLoading ? 'Deleting...' : `Delete Selected (${selectedIds.length})`}
                 </button>

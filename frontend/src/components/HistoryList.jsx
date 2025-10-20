@@ -33,7 +33,7 @@ const HistoryList = ({
         <h2 className="text-xl font-semibold text-white">Search History</h2>
         <button
           onClick={onToggleSelectAll}
-          className="text-blue-300 hover:text-blue-200 text-sm transition"
+          className="select-all-btn"
         >
           {selectedIds.length === history.length ? 'Deselect All' : 'Select All'}
         </button>

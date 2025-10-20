@@ -43,23 +43,106 @@ h1 {
   line-height: 1.1;
 }
 
-button {
-  border-radius: 8px;
+/* Submit button */
+button.submit-btn {
+  width: 100%;
+  background-color: #2563eb !important;
+  color: white !important;
+  font-weight: 600;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  transition: background-color 0.15s;
   border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
   cursor: pointer;
-  transition: border-color 0.25s;
 }
-button:hover {
-  border-color: #646cff;
+button.submit-btn:hover:not(:disabled) {
+  background-color: #1d4ed8 !important;
 }
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+button.submit-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Search button */
+button.search-btn {
+  background-color: #2563eb !important;
+  color: white !important;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  transition: background-color 0.15s;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+button.search-btn:hover:not(:disabled) {
+  background-color: #1d4ed8 !important;
+}
+button.search-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Clear button */
+button.clear-btn {
+  background-color: #0e1a2d !important;
+  color: #e2e8f0 !important;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  transition: background-color 0.15s;
+  border: 1px solid #475569;
+  cursor: pointer;
+}
+button.clear-btn:hover {
+  background-color: #475569 !important;
+}
+
+/* Logout button */
+button.logout-btn {
+  background-color: rgba(239, 68, 68, 0.2) !important;
+  color: #fecaca !important;
+  padding: 0.5rem 1rem;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  border-radius: 0.5rem;
+  transition: background-color 0.15s;
+  cursor: pointer;
+}
+button.logout-btn:hover {
+  background-color: rgba(239, 68, 68, 0.3) !important;
+}
+
+/* Delete button */
+button.delete-btn {
+  width: 100%;
+  background-color: rgba(239, 68, 68, 0.2) !important;
+  color: #fecaca !important;
+  padding: 0.5rem 1rem;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  border-radius: 0.5rem;
+  transition: background-color 0.15s;
+  margin-bottom: 1rem;
+  cursor: pointer;
+}
+button.delete-btn:hover:not(:disabled) {
+  background-color: rgba(239, 68, 68, 0.3) !important;
+}
+button.delete-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Select All button */
+button.select-all-btn {
+  background-color: rgba(16, 19, 26, 0.892) !important;
+  color: #93c5fd !important;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  transition: background-color 0.15s;
+  cursor: pointer;
+  font-size: 0.875rem;
+}
+button.select-all-btn:hover {
+  background-color: rgba(59, 130, 246, 0.3) !important;
 }
 
 @media (prefers-color-scheme: light) {
@@ -70,7 +153,5 @@ button:focus-visible {
   a:hover {
     color: #747bff;
   }
-  button {
-    background-color: #f9f9f9;
-  }
 }
+
